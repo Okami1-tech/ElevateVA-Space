@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>ElevateVA Space | Build, Learn, and Dominate</title>
+    <meta name="description" content="ElevateVA Space is a builder environment where Gen Z and Gen Alpha learn web design, branding, AI, and digital skills — then turn them into real projects and growth." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href=" https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <style>
+        :root {
+            --primary: #ffffff;
+            --background: #000000;
+            --accent: #8A2BE2; /* Rich purple */
+            --light-gray: #f0f0f0;
+            --mid-gray: #a0a0a0;
+            --dark-gray: #333333;
+            --card-bg: #0a0a0a;
+            --border: #222222;
+            --transition: all 0.3s ease;
+            --shadow: 0 4px 20px rgba(138, 43, 226, 0.15);
+            --radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background);
+            color: var(--primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 24px 0;
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            width: 180px;
+            height: auto;
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 20px 0 60px;
+            position: relative;
+        }
+
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #ffffff 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subheadline {
+            font-size: 1.375rem;
+            color: var(--mid-gray);
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-weight: 500;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            font-weight: 700;
+            font-size: 1.25rem;
+            padding: 16px 48px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            border: 2px solid var(--accent);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(138, 43, 226, 0.4);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 60px;
+            color: var(--primary);
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            margin: 16px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 32px 24px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+        }
+
+        .skill-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 24px;
+            background: rgba(138, 43, 226, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: var(--accent);
+        }
+
+        .skill-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--primary);
+        }
+
+        /* Process */
+        .process-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-bottom: 60px;
+        }
+
+        .process-steps::before {
+            content: "";
+            position: absolute;
+            top: 35px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--border);
+            z-index: 1;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            flex: 1;
+        }
+
+        .step-number {
+            width: 70px;
+            height: 70px;
+            background: var(--card-bg);
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin: 0 auto 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .step:last-child .step-number {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        .step-title {
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+            color: var(--primary);
+        }
+
+        /* Pricing */
+        .pricing-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 40px 30px;
+            text-align: center;
+            width: 100%;
+            max-width: 320px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .pricing-card.founding {
+            border: 2px solid var(--accent);
+            position: relative;
+            transform: scale(1.05);
+        }
+
+        .founding-tag {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: white;
+            padding: 6px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.875rem;
+        }
+
+        .price {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin: 20px 0;
+            color: var(--primary);
+        }
+
+        .price span {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--mid-gray);
+        }
+
+        .features {
+            list-style: none;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .features li {
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            color: var(--mid-gray);
+        }
+
+        .features li::before {
+            content: "✓";
+            color: #4ade80;
+            font-weight: bold;
+            margin-right: 12px;
+            font-size: 1.2rem;
+        }
+
+        .field-note {
+            font-size: 0.9rem;
+            color: var(--mid-gray);
+            margin-top: 20px;
+            font-style: italic;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: rgba(20, 20, 20, 0.6);
+            border-radius: var(--radius);
+            padding: 40px;
+            margin-top: 40px;
+            border: 1px solid var(--border);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .testimonial {
+            background: var(--card-bg);
+            padding: 24px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 16px;
+            color: var(--mid-gray);
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* Footer CTA */
+        .footer-cta {
+            text-align: center;
+            padding: 60px 0;
+            background: rgba(138, 43, 226, 0.08);
+            border-radius: var(--radius);
+            margin: 60px 0;
+            border: 1px solid rgba(138, 43, 226, 0.2);
+        }
+
+        .footer-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 24px;
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            h1 { font-size: 2.75rem; }
+            .subheadline { font-size: 1.25rem; }
+            .pricing-card.founding { transform: scale(1); }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.25rem; }
+            .subheadline { font-size: 1.125rem; }
+            .process-steps {
+                flex-direction: column;
+                align-items: center;
+                gap: 40px;
+            }
+            .process-steps::before { display: none; }
+            .step { width: 100%; max-width: 300px; }
+            .pricing-container { flex-direction: column; align-items: center; }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 2rem; }
+            .subheadline { font-size: 1rem; }
+            .cta-button { padding: 14px 32px; font-size: 1.125rem; }
+            .section-title { font-size: 1.875rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+   <header>
+    <div class="container">
+        <div class="logo-container">
+            <img src="logo.jpg" alt="ElevateVA Space" class="logo">
+        </div>
+    </div>
+</header>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>Comfort is the Enemy.<br>Build, Learn, and Dominate.</h1>
+            <p class="subheadline">ElevateVA Space is a builder environment led by <b>Okami Nalado (The Head)</b>, where Gen Z and Gen Alpha learn web design, branding, AI, and digital skills — then turn them into real projects and growth.</p>
+            <a href="https://t.me/+7TlDBPjYtMhiOGU0" class="cta-button">Join ElevateVA Space on Telegram</a>
+        </div>
+    </section>
+
+    <!-- What You'll Learn -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">What You'll Learn & Build</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">💻</div>
+                    <h3 class="skill-title">Landing Pages</h3>
+                    <p>Design and deploy high-converting landing pages that capture attention and drive action.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">👕</div>
+                    <h3 class="skill-title">Personal & Clothing Brand Integration</h3>
+                    <p>Build cohesive brand identities that extend across digital and physical products.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🤖</div>
+                    <h3 class="skill-title">Free AI Tools & Prompts</h3>
+                    <p>Master practical AI applications with curated tools and prompt engineering techniques.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="process-container">
+                <div class="process-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3 class="step-title">Join</h3>
+                        <p>Connect with our community on Telegram</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3 class="step-title">Build</h3>
+                        <p>Create projects using our frameworks</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3 class="step-title">Scale</h3>
+                        <p>Grow your skills and portfolio</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h3 class="step-title">The Field</h3>
+                        <p>Elite access for serious builders</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Access & Membership</h2>
+            <div class="pricing-container">
+                <div class="pricing-card founding">
+                    <div class="founding-tag">FOUNDING CIRCLE</div>
+                    <h3>Founding Members</h3>
+                    <div class="price">Free</div>
+                    <p>First 20 only — lifetime access</p>
+                    <ul class="features">
+                        <li>Weekly live workshops</li>
+                        <li>All core learning modules</li>
+                        <li>Project feedback sessions</li>
+                        <li>Full community access</li>
+                        <li>Ongoing updates & new modules</li>
+                        <li>Project showcase opportunities</li>
+                    </ul>
+                    <a href="https://t.me/+7TlDBPjYtMhiOGU0" class="cta-button">Claim Your Spot</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3>Standard Access</h3>
+                    <div class="price">$19.99<span>/month</span></div>
+                    <p>or $200.99/year (save 17%)</p>
+                    <ul class="features">
+                        <li>Weekly live workshops</li>
+                        <li>All core learning modules</li>
+                        <li>Project feedback sessions</li>
+                        <li>Full community access</li>
+                        <li>Ongoing updates & new modules</li>
+                        <li>Project showcase opportunities</li>
+                    </ul>
+                    <a href="https://t.me/+7TlDBPjYtMhiOGU0" class="cta-button">Start Free Trial</a>
+                    <p class="field-note">7-day trial. Cancel anytime.</p>
+                </div>
+            </div>
+            
+            <div class="pricing-container" style="margin-top: 60px;">
+                <div class="pricing-card" style="max-width: 600px; margin: 0 auto;">
+                    <h3>The Field</h3>
+                    <div class="price">$6,000+</div>
+                    <p>By application only</p>
+                    <ul class="features">
+                        <li>Full API access</li>
+                        <li>Advanced prompt engineering & mastery</li>
+                    </ul>
+                    <p class="field-note">No community fluff. Pure power, tools, and leverage.</p>
+                    <a href="https://t.me/+7TlDBPjYtMhiOGU0" class="cta-button">Inquire</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Early Builders Say</h2>
+            <div class="testimonials">
+                <div class="testimonial-grid">
+                    <div class="testimonial">
+                        <p class="testimonial-text">"Before meeting The Head, founder of ElevateVA Space, I felt overwhelmed and unsure of how to structure my work effectively.
+With his guidance, everything became clearer and more organized.
+My confidence, productivity, and direction improved greatly.
+Now I feel empowered,
+ focused, and ready to elevate to the next level."</p>
+                        <p class="testimonial-author">— Onomza K., 22</p>
+                    </div>
+                       <div class="testimonial">
+                        <p class="testimonial-text">"As a new business owner,I was overwhelmed managing my business.After talking to The Head, founder of ElevateVA Space and getting the right support,I was able to scale my business and freed up time to focus on growth rather than numbers."</p>
+                        <p class="testimonial-author">— Gift B., 20</p>
+                    </div>
+                    <div class="testimonial">
+                        <p class="testimonial-text">"I’ve worked personally with the founder of Elevate Space VA, and I don’t regret it one bit. Professional, reliable, and genuinely committed to excellence"</p>
+                        <p class="testimonial-author">— Shimkyank Z., </p>
+                    </div>
+                 
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section>
+        <div class="container">
+            <div class="footer-cta">
+                <h2>Ready to Build, Learn, and Dominate?</h2>
+                <a href="https://t.me/+7TlDBPjYtMhiOGU0" class="cta-button">Join ElevateVA Space on Telegram</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
